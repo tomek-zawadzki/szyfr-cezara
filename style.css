@@ -1,8 +1,58 @@
 html {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 *,
 *:before,
 *:after {
   box-sizing: inherit;
+}
+
+body {
+  background: rgb(69, 91, 163);
+  background: linear-gradient(
+    39deg,
+    rgba(69, 91, 163, 1) 21%,
+    rgba(218, 77, 77, 1) 64%
+  );
+  font-family: monospace;
+}
+
+main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 100vh;
+  width: 100%;
+  color: aliceblue;
+}
+
+.title {
+  text-align: center;
+  color: aliceblue;
+  font-size: 86px;
+  font-family: "Caveat", cursive;
+  margin-bottom: 86px;
+}
+
+.password {
+  display: flex;
+  flex-direction: column;
+  font-size: 24px;
+  gap: 16px;
+  margin-bottom: 36px;
+}
+
+.password__input {
+  border-radius: 6px;
+  font-size: 24px;
+}
+
+.new-password {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 24px;
 }

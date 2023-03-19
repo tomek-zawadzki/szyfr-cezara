@@ -6,21 +6,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Szyfr Cezara</title>
     <link rel="stylesheet" href="style.css" type="text/css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Caveat:wght@500&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
-    <header>
-      <h1 class="title">Szyfr Cezara</h1>
-    </header>
     <main>
-      <div class="password">
-        <label class="password__label" for="password"
-          >Wpisz hasło do zaszyfrowania</label
-        >
-        <input class="password__label" type="text" id="password" />
-      </div>
-      <div class="new-password">
-        <p class="new-password__discription">Twoje nowe zaszyfrowane hasło</p>
-        <p class="new-password__value">hasło</p>
+      <header>
+        <h1 class="title">Szyfr Cezara</h1>
+      </header>
+      <div class="container">
+        <div class="password">
+          <label class="password__label" for="password"
+            >Wpisz hasło do zaszyfrowania:</label
+          >
+          <input class="password__input" type="text" id="password" />
+        </div>
+        <div class="new-password">
+          <p class="new-password__discription">Twoje nowe zaszyfrowane hasło</p>
+          <p class="new-password__value">hasło</p>
+        </div>
       </div>
     </main>
     <script src="index.js" type="modules"></script>
