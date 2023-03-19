@@ -6,3 +6,5 @@ const cipherBtn = document.querySelector(".cipher-btn");
 cipherBtn.addEventListener("click", () => {
   cezarCipher(passwordInput.value);
 });
+
+export default passwordInput;

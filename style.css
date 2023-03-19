@@ -46,6 +46,8 @@ main {
 
 .password {
   display: flex;
+  align-items: center;
+  justify-content: center;
   flex-direction: column;
   font-size: 24px;
   gap: 16px;
@@ -55,6 +57,12 @@ main {
 .password__input {
   border-radius: 6px;
   font-size: 24px;
+  width: 640px;
+}
+
+.password__info {
+  visibility: hidden;
+  color: rgba(218, 217, 222, 0.629);
 }
 
 .cipher-btn {
