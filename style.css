@@ -37,6 +37,13 @@ main {
   margin-bottom: 86px;
 }
 
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
 .password {
   display: flex;
   flex-direction: column;
@@ -48,6 +55,13 @@ main {
 .password__input {
   border-radius: 6px;
   font-size: 24px;
+}
+
+.cipher-btn {
+  font-size: 24px;
+  background-color: rgb(229, 255, 205);
+  border-radius: 6px;
+  padding: 8px 12px;
 }
 
 .new-password {
