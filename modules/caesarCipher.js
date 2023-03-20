@@ -1,6 +1,5 @@
-import passwordInput from "../script.js";
 import validation from "./validation.js";
-import { newPassword } from "./variables.js";
+import { newPassword, passwordInput } from "./variables.js";
 import {
   resetTextValues,
   resetNewPassword,
@@ -75,7 +74,7 @@ const pushLetter = (alphabetType, sign) => {
   cipheredPassword.push(alphabetType[newIndex]);
 };
 
-const cezarCipher = (password) => {
+const caesarCipher = (password) => {
   resetNewPassword();
   const splitedPassword = password.split("");
 
@@ -107,4 +106,4 @@ const cezarCipher = (password) => {
   }
 };
 
-export default cezarCipher;
+export default caesarCipher;
