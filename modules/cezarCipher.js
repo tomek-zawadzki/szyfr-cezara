@@ -96,6 +96,8 @@ const cezarCipher = (password) => {
         pushLetter(alphabetSmallLetters, sign);
       } else if (checkBigLetter) {
         pushLetter(alphabetBigLetters, sign);
+      } else {
+        throw new Error(`Coś poszło nie tak, spróbuj ponowanie`);
       }
     });
     const newPasswordValue = cipheredPassword.join("");
