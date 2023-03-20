@@ -31,14 +31,14 @@ let alphabet = [
   "z",
 ];
 
-const resetTekstValues = () => {
+const resetTextValues = () => {
   passwordInput.value = "";
   passwordInfo.value = "";
 };
 
 const cezarCipher = (password) => {
   const splitedPassword = password.toLowerCase().split("");
-  const rotCode = 13;
+  console.log(splitedPassword);
 
   if (passwordInput.value === "") {
     validation("Wpisz hasło");
@@ -48,27 +48,20 @@ const cezarCipher = (password) => {
     );
   } else {
     const newArr = splitedPassword.map((letter) => {
-      let letterIndexInAlphabet = alphabet.indexOf(letter);
-      let newIndex = 0;
+      const letterIndexInAlphabet = alphabet.indexOf(letter);
+      const rotCode = 13;
+      let newIndex = letterIndexInAlphabet + rotCode;
 
-      const calculateNewIndex = (input) => {
-        if (letterIndexInAlphabet + rotCode < alphabet.length) {
-          newIndex = input + rotCode;
-        } else {
-          const differece = input + rotCode - alphabet.length;
-          newIndex += differece;
-        }
-      };
+      newIndex < alphabet.length ? newIndex : (newIndex -= alphabet.length);
 
-      calculateNewIndex(letterIndexInAlphabet);
-      const cipheredPssword = alphabet[newIndex];
-      return cipheredPssword;
+      const cipheredPassword = alphabet[newIndex];
+      return cipheredPassword;
     });
     const newPasswordValue = newArr.join("");
     newPassword.textContent = newPasswordValue;
   }
 
-  resetTekstValues();
+  resetTextValues();
 };
 
 export default cezarCipher;
