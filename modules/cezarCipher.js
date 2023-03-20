@@ -2,7 +2,7 @@ import passwordInput from "../script.js";
 import validation from "./validation.js";
 import { newPassword, passwordInfo } from "./variables.js";
 
-let alphabet = [
+const alphabet = [
   "a",
   "b",
   "c",
@@ -37,27 +37,29 @@ const resetTextValues = () => {
 };
 
 const cezarCipher = (password) => {
+  const cipheredPassword = [];
   const splitedPassword = password.toLowerCase().split("");
-  console.log(splitedPassword);
 
   if (passwordInput.value === "") {
     validation("Wpisz hasło");
   } else if (passwordInput.value.includes(" ")) {
-    validation(
-      "Hasło nie może zawierać znaków oraz musi być w jednym ciągu (bez spacji)"
-    );
+    validation("Hasło musi być w jednym ciągu (bez spacji)");
   } else {
-    const newArr = splitedPassword.map((letter) => {
-      const letterIndexInAlphabet = alphabet.indexOf(letter);
-      const rotCode = 13;
-      let newIndex = letterIndexInAlphabet + rotCode;
+    splitedPassword.forEach((letter) => {
+      const checkLetterType = /[^a-zA-Z]/.test(letter);
+      if (checkLetterType) {
+        cipheredPassword.push(letter);
+      } else {
+        const letterIndexInAlphabet = alphabet.indexOf(letter);
+        const rotCode = 13;
+        let newIndex = letterIndexInAlphabet + rotCode;
 
-      newIndex < alphabet.length ? newIndex : (newIndex -= alphabet.length);
+        newIndex < alphabet.length ? newIndex : (newIndex -= alphabet.length);
 
-      const cipheredPassword = alphabet[newIndex];
-      return cipheredPassword;
+        cipheredPassword.push(alphabet[newIndex]);
+      }
     });
-    const newPasswordValue = newArr.join("");
+    const newPasswordValue = cipheredPassword.join("");
     newPassword.textContent = newPasswordValue;
   }
 
