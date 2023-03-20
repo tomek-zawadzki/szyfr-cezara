@@ -42,6 +42,9 @@ main {
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  background-color: rgba(0, 0, 0, 0.12);
+  padding: 32px;
+  border-radius: 8px;
 }
 
 .password {
@@ -63,13 +66,24 @@ main {
 .password__info {
   visibility: hidden;
   color: rgba(218, 217, 222, 0.629);
+  margin: 0;
 }
 
 .cipher-btn {
   font-size: 24px;
   background-color: rgb(229, 255, 205);
+  border: none;
   border-radius: 6px;
   padding: 8px 12px;
+  transition: background-color 0.3s;
+}
+
+.cipher-btn:hover {
+  background-color: rgb(175, 234, 120);
+}
+
+.cipher-btn:active {
+  background-color: rgb(97, 160, 37);
 }
 
 .new-password {
@@ -77,4 +91,10 @@ main {
   flex-direction: column;
   align-items: center;
   font-size: 24px;
+}
+
+.new-password__value {
+  visibility: hidden;
+  font-size: 36px;
+  margin: 0;
 }
