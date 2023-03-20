@@ -1,7 +1,6 @@
-import passwordInput from "./script.js";
-
-const newPassword = document.querySelector(".new-password__value");
-const passwordInfo = document.querySelector(".password__info");
+import passwordInput from "../script.js";
+import validation from "./validation.js";
+import { newPassword, passwordInfo } from "./variables.js";
 
 let alphabet = [
   "a",
@@ -32,29 +31,31 @@ let alphabet = [
   "z",
 ];
 
-const validation = (tekst) => {
-  passwordInfo.textContent = tekst;
-  passwordInfo.style.visibility = "visible";
+const resetTekstValues = () => {
+  passwordInput.value = "";
+  passwordInfo.value = "";
 };
 
 const cezarCipher = (password) => {
   const splitedPassword = password.toLowerCase().split("");
-  const rot13 = 13;
+  const rotCode = 13;
 
   if (passwordInput.value === "") {
     validation("Wpisz hasło");
   } else if (passwordInput.value.includes(" ")) {
-    validation("Hasło nie może zawierać spacji");
+    validation(
+      "Hasło nie może zawierać znaków oraz musi być w jednym ciągu (bez spacji)"
+    );
   } else {
     const newArr = splitedPassword.map((letter) => {
       let letterIndexInAlphabet = alphabet.indexOf(letter);
       let newIndex = 0;
 
       const calculateNewIndex = (input) => {
-        if (letterIndexInAlphabet + rot13 < alphabet.length) {
-          newIndex = input + rot13;
+        if (letterIndexInAlphabet + rotCode < alphabet.length) {
+          newIndex = input + rotCode;
         } else {
-          const differece = input + rot13 - alphabet.length;
+          const differece = input + rotCode - alphabet.length;
           newIndex += differece;
         }
       };
@@ -67,8 +68,7 @@ const cezarCipher = (password) => {
     newPassword.textContent = newPasswordValue;
   }
 
-  passwordInput.value = "";
-  passwordInfo.value = "";
+  resetTekstValues();
 };
 
 export default cezarCipher;

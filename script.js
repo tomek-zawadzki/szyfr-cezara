@@ -1,7 +1,5 @@
-import cezarCipher from "./cezarCipher.js";
-
-const passwordInput = document.querySelector(".password__input");
-const cipherBtn = document.querySelector(".cipher-btn");
+import { cipherBtn, passwordInput } from "./modules/variables.js";
+import cezarCipher from "./modules/cezarCipher.js";
 
 cipherBtn.addEventListener("click", () => {
   cezarCipher(passwordInput.value);
