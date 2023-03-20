@@ -1,8 +1,11 @@
 import passwordInput from "../script.js";
 import validation from "./validation.js";
-import { newPassword, passwordInfo } from "./variables.js";
-
-const cipheredPassword = [];
+import { newPassword } from "./variables.js";
+import {
+  resetTextValues,
+  resetNewPassword,
+  cipheredPassword,
+} from "./reset.js";
 
 const alphabetSmallLetters = [
   "a",
@@ -62,11 +65,6 @@ const alphabetBigLetters = [
   "Z",
 ];
 
-const resetTextValues = () => {
-  passwordInput.value = "";
-  passwordInfo.value = "";
-};
-
 const pushLetter = (alphabetType, sign) => {
   const letterIndexInAlphabet = alphabetType.indexOf(sign);
   const rotCode = 13;
@@ -78,6 +76,7 @@ const pushLetter = (alphabetType, sign) => {
 };
 
 const cezarCipher = (password) => {
+  resetNewPassword();
   const splitedPassword = password.split("");
 
   if (passwordInput.value === "") {
@@ -100,11 +99,12 @@ const cezarCipher = (password) => {
         throw new Error(`Coś poszło nie tak, spróbuj ponowanie`);
       }
     });
+
     const newPasswordValue = cipheredPassword.join("");
     newPassword.textContent = newPasswordValue;
-  }
 
-  resetTextValues();
+    resetTextValues();
+  }
 };
 
 export default cezarCipher;
