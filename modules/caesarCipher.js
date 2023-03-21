@@ -35,34 +35,9 @@ const alphabetSmallLetters = [
   "z",
 ];
 
-const alphabetBigLetters = [
-  "A",
-  "B",
-  "C",
-  "D",
-  "E",
-  "F",
-  "G",
-  "H",
-  "I",
-  "J",
-  "K",
-  "L",
-  "M",
-  "N",
-  "O",
-  "P",
-  "Q",
-  "R",
-  "S",
-  "T",
-  "U",
-  "V",
-  "W",
-  "X",
-  "Y",
-  "Z",
-];
+const alphabetBigLetters = alphabetSmallLetters.map((letter) =>
+  letter.toLocaleUpperCase()
+);
 
 const pushLetter = (alphabetType, sign) => {
   const letterIndexInAlphabet = alphabetType.indexOf(sign);
