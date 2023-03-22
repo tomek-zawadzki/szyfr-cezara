@@ -52,13 +52,12 @@ const pushLetter = (alphabetType, sign) => {
 const caesarCipher = (password) => {
   resetNewPassword();
   const splitedPassword = password.split("");
-  const checkPolishLetter = /[żźćńółęąś]/.test(splitedPassword);
+  const checkPolishLetter = /[żźćńółęąśŻŹĆŃÓŁĘĄŚ]/.test(splitedPassword);
 
   if (passwordInput.value === "") {
     validation("Wpisz hasło");
   } else if (checkPolishLetter) {
     validation("Hasło nie może zawierać poliskich znaków");
-    console.log("ok");
   } else if (passwordInput.value.includes(" ")) {
     validation("Hasło musi być w jednym ciągu (bez spacji)");
   } else {
