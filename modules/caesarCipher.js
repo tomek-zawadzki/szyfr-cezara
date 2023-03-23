@@ -5,8 +5,9 @@ import {
   resetNewPassword,
   cipheredPassword,
 } from "./reset.js";
+import interval from "./interval.js";
 
-const alphabetSmallLetters = [
+export const alphabetSmallLetters = [
   "a",
   "b",
   "c",
@@ -35,11 +36,11 @@ const alphabetSmallLetters = [
   "z",
 ];
 
-const alphabetBigLetters = alphabetSmallLetters.map((letter) =>
+export const alphabetBigLetters = alphabetSmallLetters.map((letter) =>
   letter.toLocaleUpperCase()
 );
 
-const pushLetter = (alphabetType, sign) => {
+const pushLetters = (alphabetType, sign) => {
   const letterIndexInAlphabet = alphabetType.indexOf(sign);
   const rotCode = 13;
   let newIndex = letterIndexInAlphabet + rotCode;
@@ -53,7 +54,6 @@ const caesarCipher = (password) => {
   resetNewPassword();
   const splitedPassword = password.split("");
   const checkPolishLetter = /[żźćńółęąśŻŹĆŃÓŁĘĄŚ]/.test(splitedPassword);
-
   if (passwordInput.value === "") {
     validation("Wpisz hasło");
   } else if (checkPolishLetter) {
@@ -61,6 +61,7 @@ const caesarCipher = (password) => {
   } else if (passwordInput.value.includes(" ")) {
     validation("Hasło musi być w jednym ciągu (bez spacji)");
   } else {
+    interval(password);
     splitedPassword.forEach((sign) => {
       const checkLetterType = /[^a-zA-Z]/.test(sign);
       const checkSmallLetter = /[a-z]/.test(sign);
@@ -69,16 +70,19 @@ const caesarCipher = (password) => {
       if (checkLetterType) {
         cipheredPassword.push(sign);
       } else if (checkSmallLetter) {
-        pushLetter(alphabetSmallLetters, sign);
+        pushLetters(alphabetSmallLetters, sign);
       } else if (checkBigLetter) {
-        pushLetter(alphabetBigLetters, sign);
+        pushLetters(alphabetBigLetters, sign);
       } else {
         throw new Error(`Coś poszło nie tak, spróbuj ponowanie`);
       }
     });
 
     const newPasswordValue = cipheredPassword.join("");
-    newPassword.textContent = newPasswordValue;
+
+    setTimeout(() => {
+      newPassword.textContent = newPasswordValue;
+    }, 1010);
 
     resetTextValues();
   }

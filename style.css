@@ -17,6 +17,7 @@ body {
     rgba(69, 91, 163, 1) 21%,
     rgba(218, 77, 77, 1) 64%
   );
+  background-repeat: no-repeat;
   font-family: monospace;
 }
 
@@ -63,6 +64,7 @@ main {
   border-radius: 0.6rem;
   font-size: 2.4rem;
   width: 64rem;
+  text-align: center;
 }
 
 .password__info {
@@ -78,6 +80,7 @@ main {
   border: none;
   border-radius: 0.6rem;
   padding: 0.8rem 1.2rem;
+  cursor: pointer;
   transition: background-color 0.3s;
 }
 
@@ -94,6 +97,7 @@ main {
   flex-direction: column;
   align-items: center;
   font-size: 2.4rem;
+  width: 100%;
 }
 
 .new-password__value {
@@ -102,7 +106,7 @@ main {
   padding: 0.8rem;
   border-radius: 0.6rem;
   background-color: rgba(0, 0, 0, 0.22);
-  min-width: 60rem;
+  width: 100%;
   height: 6.6rem;
   text-align: center;
 }
@@ -121,10 +125,6 @@ main {
 
   .password__input {
     max-width: 55rem;
-  }
-
-  .new-password__value {
-    min-width: 45rem;
   }
 }
 
