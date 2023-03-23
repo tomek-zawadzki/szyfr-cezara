@@ -100,6 +100,23 @@ main {
   width: 100%;
 }
 
+.new-password__discription {
+  width: 100%;
+  text-align: center;
+  padding-left: 5rem;
+}
+
+.toggle-btn {
+  visibility: hidden;
+  text-align: end;
+  font-size: 2.4rem;
+  width: 4rem;
+  background-color: transparent;
+  border: none;
+  color: rgba(58, 56, 65, 0.629);
+  cursor: pointer;
+}
+
 .new-password__value {
   font-size: 4.2rem;
   margin: 0;

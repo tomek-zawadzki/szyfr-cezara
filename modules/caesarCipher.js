@@ -1,5 +1,5 @@
 import validation from "./validation.js";
-import { newPassword, passwordInput } from "./variables.js";
+import { newPassword, passwordInput, toggleBtn } from "./variables.js";
 import {
   resetTextValues,
   resetNewPassword,
@@ -35,6 +35,8 @@ export const alphabetSmallLetters = [
   "y",
   "z",
 ];
+
+let newPasswordValue;
 
 export const alphabetBigLetters = alphabetSmallLetters.map((letter) =>
   letter.toLocaleUpperCase()
@@ -78,13 +80,24 @@ const caesarCipher = (password) => {
       }
     });
 
-    const newPasswordValue = cipheredPassword.join("");
+    newPasswordValue = cipheredPassword.join("");
 
     setTimeout(() => {
-      newPassword.textContent = newPasswordValue;
+      newPassword.textContent = "*".repeat(newPasswordValue.length);
+      toggleBtn.style.visibility = "visible";
     }, 1010);
 
     resetTextValues();
+  }
+};
+
+export const coverNewPassword = () => {
+  if (newPassword.textContent === newPasswordValue) {
+    newPassword.textContent = "*".repeat(newPasswordValue.length);
+    toggleBtn.innerHTML = `<i class="fa-regular fa-eye"></i>`;
+  } else if ((newPassword.textContent = "*******")) {
+    newPassword.textContent = newPasswordValue;
+    toggleBtn.innerHTML = `<i class="fa-regular fa-eye-slash"></i>`;
   }
 };
 

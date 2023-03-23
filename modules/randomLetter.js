@@ -6,13 +6,36 @@ import {
 import { newPassword } from "./variables.js";
 import { alphabetSmallLetters, alphabetBigLetters } from "./caesarCipher.js";
 
+const numbersAndSigns = [
+  "0",
+  "1",
+  "2",
+  "3",
+  "4",
+  "5",
+  "6",
+  "7",
+  "8",
+  "9",
+  "!",
+  "@",
+  "#",
+  "%",
+  "$",
+  "*",
+];
+
 const randomLetter = (password) => {
   resetNewPassword();
-  const bigAndSmallLetters = [...alphabetSmallLetters, ...alphabetBigLetters];
+  const bigSmallSigns = [
+    ...alphabetSmallLetters,
+    ...alphabetBigLetters,
+    ...numbersAndSigns,
+  ];
   const splitedPassword = password.split("");
   splitedPassword.forEach((sign) => {
-    const random = Math.floor(Math.random() * bigAndSmallLetters.length);
-    sign = bigAndSmallLetters[random];
+    const random = Math.floor(Math.random() * bigSmallSigns.length);
+    sign = bigSmallSigns[random];
     cipheredPassword.push(sign);
   });
 
