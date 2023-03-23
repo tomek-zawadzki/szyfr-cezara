@@ -1,5 +1,5 @@
 import validation from "./validation.js";
-import { newPassword, passwordInput, toggleBtn } from "./variables.js";
+import { copyBtn, newPassword, passwordInput, toggleBtn } from "./variables.js";
 import {
   resetTextValues,
   resetNewPassword,
@@ -85,6 +85,7 @@ const caesarCipher = (password) => {
     setTimeout(() => {
       newPassword.textContent = "*".repeat(newPasswordValue.length);
       toggleBtn.style.visibility = "visible";
+      copyBtn.style.visibility = "visible";
     }, 1010);
 
     resetTextValues();
@@ -99,6 +100,10 @@ export const coverNewPassword = () => {
     newPassword.textContent = newPasswordValue;
     toggleBtn.innerHTML = `<i class="fa-regular fa-eye-slash"></i>`;
   }
+};
+
+export const copyPassword = () => {
+  navigator.clipboard.writeText(newPasswordValue);
 };
 
 export default caesarCipher;
